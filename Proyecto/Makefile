@@ -31,6 +31,7 @@ logs: ## Mostrar logs en tiempo real
 clean: ## Eliminar contenedores, imágenes y volúmenes
 	@echo 'Limpiando recursos de Docker'
 	docker-compose down -v --rmi all
+	docker rmi node:18-alpine
 
 
 start: ## Levanta el proyecto directamente.
