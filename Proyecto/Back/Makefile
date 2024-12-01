@@ -8,16 +8,17 @@ help:
 	@echo "Ordenes disponibles:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-up: ## Levantando servicios Docker laravel
-	@echo 'Levantando de servicios laravel'
-	docker-compose up
+up: ## Construyendo servicios Docker laravel y adminer
+	@echo 'Construyendo servicios laravel y adminer'
+	docker-compose up -d
 
 down: ## Detener y eliminar contenedores laravel
 	@echo 'Deteniendo servicios'
 	docker-compose down
+	docker rmi -f back_laravel php:8.2-fpm composer adminer mysql:8.2.0
 
-restart: ## Reiniciar todos los servicios laravel
-	@echo 'Reiniciando servicios'
+restart: ## Iniciando todos los servicios laravel
+	@echo 'Iniciando/Reiniciando servicios'
 	docker-compose restart
 
 logs: ## Mostrar logs de laravel en tiempo real 

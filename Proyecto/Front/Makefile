@@ -1,6 +1,3 @@
-# Variables
-COMPOSE_FILE=docker-compose.yml
-
 # Target de ayuda por defecto
 help:
 	@echo "🐳 Makefile para gestión de proyectos Docker 🐳"
@@ -37,7 +34,6 @@ clean: ## Eliminar contenedores, imágenes y volúmenes
 start: ## Levanta el proyecto directamente.
 	$(MAKE) build
 	$(MAKE) up
-	$(MAKE) logs
 
 close_all: ## Cierra todo el proyecto y elimina imagenes
 	$(MAKE) down
