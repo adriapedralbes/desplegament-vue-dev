@@ -34,6 +34,7 @@ Este proyecto se gestiona mediante un archivo Makefile.
 
 1. **Listar comandos disponibles**
     ```bash
+    cd Proyecto
     make help
 2. **Ejemplo de salida**
     ```bash
