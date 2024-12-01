@@ -5,7 +5,7 @@ COMPOSE_FILE=docker-compose.yml
 help:
 	@echo "🐳 Makefile para gestión de proyectos Docker 🐳"
 	@echo ""
-	@echo "Targets disponibles:"
+	@echo "Ordenes disponibles:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 build: ## Construcción de servicios Docker
