@@ -1,11 +1,8 @@
-# Variables
-COMPOSE_FILE=docker-compose.yml
-
 # Target de ayuda por defecto
 help:
 	@echo "🐳 Makefile para gestión de proyectos Docker 🐳"
 	@echo ""
-	@echo "Targets disponibles:"
+	@echo "Ordenes disponibles:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 build: ## Construcción de servicios Docker
@@ -37,7 +34,6 @@ clean: ## Eliminar contenedores, imágenes y volúmenes
 start: ## Levanta el proyecto directamente.
 	$(MAKE) build
 	$(MAKE) up
-	$(MAKE) logs
 
 close_all: ## Cierra todo el proyecto y elimina imagenes
 	$(MAKE) down
